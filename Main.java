@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        ArrayList<Album> albums = new ArrayList<>();
+    public static ArrayList<Album> albums = new ArrayList<>();
 
+    public static void main(String[] args) {
         Album album1 = new Album("Album1", "Artista1");
         album1.addSong("Cancion1", 1.2);
         album1.addSong("Cancion2", 2.0);
@@ -38,7 +38,7 @@ public class Main {
         }
 
         boolean haciaAdelante = true;
-        while(continuar) {
+        while (continuar) {
             int opcion = scanner.nextInt();
             scanner.nextLine();
             switch (opcion) {
@@ -62,7 +62,7 @@ public class Main {
                     break;
 
                 case 2:
-                    if(haciaAdelante) {
+                    if (haciaAdelante) {
                         if (it.hasPrevious())
                             it.previous();
                         haciaAdelante = false;
@@ -76,37 +76,59 @@ public class Main {
                     break;
 
                 case 3:
-                    if (haciaAdelante ){
-                        if (it.hasPrevious()){
+                    if (haciaAdelante) {
+                        if (it.hasPrevious()) {
                             System.out.println("estas escuchando " + it.previous());
                             it.next();
 
-                        }else {
+                        } else {
                             System.out.println("estas escuchando" + it.next());
                         }
-                    }else{
-                        if (it.hasNext()){
-                        System.out.println("estas escuchando" + it.next());
-                        it.previous();
+                    } else {
+                        if (it.hasNext()) {
+                            System.out.println("estas escuchando" + it.next());
+                            it.previous();
 
 
-                    }else{
+                        } else {
                             System.out.println("estas escuchando" + it.previous());
                             it.next();
                         }
 
-                }
+                    }
                     break;
 
                 case 4:
+                    if (Canciones.isEmpty()) {
+                        System.out.println("La playlist está vacía");
+                    } else {
+                        System.out.println("Lista de canciones en la playlist:");
+                        int index = 1;
+                        for (Cancion cancion : Canciones) {
+                            System.out.println(index + ". " + cancion.getTitulo() + "");
+                            index++;
+                        }
+                        System.out.println();
+                    }
 
                     break;
+
                 case 5:
                     mostrarMenu();
+                    break;
+
+                case 6:
+                    it.remove();
+                    System.out.println("La cancion actual ha sido eliminada");
+                    break;
+
+                case 7:
+                    imprimirAlbum();
                     break;
             }
         }
     }
+
     private static void mostrarMenu() {
         System.out.println("Menú:");
         System.out.println("0. Salir de la lista de reproducción");
@@ -127,5 +149,24 @@ public class Main {
         }
     }
 
+    public static void imprimirAlbum() {
+        Scanner scanner = new Scanner(System.in);
+        for (Album album : albums) {
+            System.out.println(albums);
 
+        }
+        System.out.println();
+        System.out.println("¿Que album quieres?");
+        String nombre = scanner.next();
+        for (Album albumes : albums) {
+            if (nombre.equalsIgnoreCase(albumes.nombre)) {
+                System.out.println(albumes);
+                for (Cancion cancion : albumes.canciones){
+                    System.out.println();
+
+                }
+
+            }
+        }
+    }
 }

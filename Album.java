@@ -13,7 +13,7 @@ public class Album {
         this.artista = artista;
     }
 
-    public Cancion findSong(String titulo) {
+    private Cancion findSong(String titulo) {
         for (int i = 0; i < canciones.size(); i++) {
             if (canciones.get(i).getTitulo().equalsIgnoreCase(titulo)) {
                 return canciones.get(i);
