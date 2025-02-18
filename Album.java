@@ -54,4 +54,11 @@ public class Album {
 
     }
 
+    @Override
+    public String toString() {
+        return "Album{" +
+                "nombre='" + nombre + '\'' +
+                ", artista='" + artista + '\'' +
+                '}';
+    }
 }

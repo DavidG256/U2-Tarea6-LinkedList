@@ -161,7 +161,7 @@ public class Main {
         for (Album albumes : albums) {
             if (nombre.equalsIgnoreCase(albumes.nombre)) {
                 System.out.println(albumes);
-                for (Cancion cancion : albumes.canciones){
+                for (Cancion cancion : albumes.canciones) {
                     System.out.println();
 
                 }
@@ -169,4 +169,6 @@ public class Main {
             }
         }
     }
+
+
 }
