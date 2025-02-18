@@ -156,7 +156,7 @@ public class Main {
 
         }
         System.out.println();
-        System.out.println("¿Que album quieres?");
+        System.out.println("¿Que album quieres imprimir?");
         String nombre = scanner.next();
         for (Album albumes : albums) {
             if (nombre.equalsIgnoreCase(albumes.nombre)) {
